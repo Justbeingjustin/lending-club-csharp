@@ -21,14 +21,14 @@
 ||Available Cash|**No**|
 ||Transfer Funds|**No**|
 ||Pending Transfers|**No**|
-||Cancel transfers|**No**|
-||Notes owned|**No**|
-||Detailed notes owned|**No**|
-||Portfolio owned|**No**|
-||Create portfolio|**No**|
-||Submit order|**No**|
+||Cancel Transfers|**No**|
+||Notes Owned|**No**|
+||Detailed Notes Owned|**No**|
+||Portfolio Owned|**No**|
+||Create Portfolio|**No**|
+||Submit Order|**No**|
 |Loan|||
-||Loan listing|**No**|
+||Loan Listing|**No**|
 
 
 
