@@ -2,7 +2,7 @@
 
 ### Table of Contents
 **[Nuget](#nuget)**<br>
-**[Features](#features)**<br>
+**[Supported Features](#supported-features)**<br>
 **[Useage](#useage)**<br>
 **[Contributing](#contributing)**<br>
 
@@ -13,7 +13,7 @@
     PM> todo
 ```
 
-## Features
+## Supported Features
 |Resource|Feature|Supported|
 |------|--------------|-------------|
 |Account|||
