@@ -1,10 +1,17 @@
 # lending-club-csharp
 
 ### Table of Contents
+**[Available For](#available-for)**<br>
 **[Nuget](#nuget)**<br>
 **[Supported Features](#supported-features)**<br>
 **[Useage](#useage)**<br>
 **[Contributing](#contributing)**<br>
+
+
+## Available For
+- .NET Standard 2.0
+- .NET 4.6.1
+- .NET 4.5
 
 
 ## Nuget
