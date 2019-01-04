@@ -10,7 +10,7 @@
 ## Nuget
 
  ```
-    PM> todo
+    PM> Install-Package lending-club-csharp
 ```
 
 ## Supported Features
@@ -28,13 +28,35 @@
 ||Create Portfolio|**No**|
 ||Submit Order|**No**|
 |Loan|||
-||Loan Listing|**No**|
+||Loan Listing|**Yes**|
 
 
 
 ## Useage
+
+### Loan Listing	
+This provides the details of the loans currently listed on Lending Club. The list contains the same loans that an investor would see on the browse loans page on the Lending Club website.
 ```
-todo
+using LendingClub.Services;
+using System;
+
+namespace ConsoleApp1
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            ILoansRepository loansRepository = new LoansRepository("API_KEY");
+            var loansContainer = loansRepository.GetLoans();
+
+            foreach (var loan in loansContainer.loans)
+            {
+                Console.WriteLine(loan.loanAmount);
+            }
+            Console.ReadLine();
+        }
+    }
+}
 ```
 
 
