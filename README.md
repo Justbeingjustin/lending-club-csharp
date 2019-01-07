@@ -24,8 +24,8 @@
 |Resource|Feature|Supported|
 |------|--------------|-------------|
 |Account|||
-||Summary|**No**|
-||Available Cash|**No**|
+||Summary|**Yes**|
+||Available Cash|**Yes**|
 ||Transfer Funds|**No**|
 ||Pending Transfers|**No**|
 ||Cancel Transfers|**No**|
@@ -40,6 +40,7 @@
 
 
 ## Useage
+The api key can be obtained on the settings page on the LendingClub website when the user is logged in. Also, the investorId can be found in the Account Summary section on the LendingClub website. 
 
 ### Loan Listing	
 This provides the details of the loans currently listed on Lending Club. The list contains the same loans that an investor would see on the browse loans page on the Lending Club website.
@@ -61,6 +62,40 @@ namespace ConsoleApp1
                 Console.WriteLine(loan.loanAmount);
             }
             Console.ReadLine();
+        }
+    }
+}
+```
+
+### Summary
+This provides a summary of the investor's account.
+```
+using LendingClub.Services;
+namespace ConsoleApp1
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            IAccountRepository accountRepository = new AccountRepository("API_KEY","Investor_Id");
+            var accountSummary = accountRepository.GetAccountSummary();
+        }
+    }
+}
+```
+
+### Available Cash
+This provides the most up to date value of the cash available in the investor's account.
+```
+using LendingClub.Services;
+namespace ConsoleApp1
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            IAccountRepository accountRepository = new AccountRepository("API_KEY","Investor_Id");
+            var availableCash = accountRepository.GetAvailableCash();
         }
     }
 }
