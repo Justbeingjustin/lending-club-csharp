@@ -12,5 +12,21 @@ namespace LendingClub.Services
         AvailableCash GetAvailableCash();
 
         Task<AvailableCash> GetAvailableCashAsync();
+
+        NotesContainer GetNotes();
+
+        Task<NotesContainer> GetNotesAsync();
+
+        DetailedNotesContainer GetDetailedNotes();
+
+        Task<DetailedNotesContainer> GetDetailedNotesAsync();
+
+        PortfolioContainer GetPortfolios();
+
+        Task<PortfolioContainer> GetPortfoliosAsync();
+
+        Portfolio CreatePortfolio(CreatePortfolioRequest portfolioRequest);
+
+        Task<Portfolio> CreatePortfolioAsync(CreatePortfolioRequest portfolioRequest);
     }
 }

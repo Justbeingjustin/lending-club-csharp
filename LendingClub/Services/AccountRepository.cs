@@ -18,6 +18,30 @@ namespace LendingClub.Services
             _investorId = investorId;
         }
 
+        public async Task<Portfolio> CreatePortfolioAsync(CreatePortfolioRequest portfolioRequest)
+        {
+            var client = new RestClient(baseUrl + _investorId + "/portfolios");
+            var request = new RestRequest(Method.POST);
+            var portfolioRequestWithActorId = (CreatePortfolioRequestWithActorId)portfolioRequest;
+            portfolioRequestWithActorId.ActorId = _investorId;
+            request.AddHeader(authorization, _apiKey);
+            request.AddParameter("application/json", JsonConvert.SerializeObject(portfolioRequestWithActorId), ParameterType.RequestBody);
+            IRestResponse response = await client.ExecuteTaskAsync(request);
+            return JsonConvert.DeserializeObject<Portfolio>(response.Content);
+        }
+
+        public Portfolio CreatePortfolio(CreatePortfolioRequest portfolioRequest)
+        {
+            var client = new RestClient(baseUrl + _investorId + "/portfolios");
+            var request = new RestRequest(Method.POST);
+            var portfolioRequestWithActorId = (CreatePortfolioRequestWithActorId)portfolioRequest;
+            portfolioRequestWithActorId.ActorId = _investorId;
+            request.AddHeader(authorization, _apiKey);
+            request.AddParameter("application/json", JsonConvert.SerializeObject(portfolioRequestWithActorId), ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<Portfolio>(response.Content);
+        }
+
         public AccountSummary GetAccountSummary()
         {
             var client = new RestClient(baseUrl + _investorId + "/summary");
@@ -52,6 +76,60 @@ namespace LendingClub.Services
             request.AddHeader(authorization, _apiKey);
             IRestResponse response = await client.ExecuteTaskAsync(request);
             return JsonConvert.DeserializeObject<AvailableCash>(response.Content);
+        }
+
+        public DetailedNotesContainer GetDetailedNotes()
+        {
+            var client = new RestClient(baseUrl + _investorId + "/detailednotes");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader(authorization, _apiKey);
+            IRestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<DetailedNotesContainer>(response.Content);
+        }
+
+        public async Task<DetailedNotesContainer> GetDetailedNotesAsync()
+        {
+            var client = new RestClient(baseUrl + _investorId + "/detailednotes");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader(authorization, _apiKey);
+            IRestResponse response = await client.ExecuteTaskAsync(request);
+            return JsonConvert.DeserializeObject<DetailedNotesContainer>(response.Content);
+        }
+
+        public NotesContainer GetNotes()
+        {
+            var client = new RestClient(baseUrl + _investorId + "/notes");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader(authorization, _apiKey);
+            IRestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<NotesContainer>(response.Content);
+        }
+
+        public async Task<NotesContainer> GetNotesAsync()
+        {
+            var client = new RestClient(baseUrl + _investorId + "/notes");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader(authorization, _apiKey);
+            IRestResponse response = await client.ExecuteTaskAsync(request);
+            return JsonConvert.DeserializeObject<NotesContainer>(response.Content);
+        }
+
+        public PortfolioContainer GetPortfolios()
+        {
+            var client = new RestClient(baseUrl + _investorId + "/portfolios");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader(authorization, _apiKey);
+            IRestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<PortfolioContainer>(response.Content);
+        }
+
+        public async Task<PortfolioContainer> GetPortfoliosAsync()
+        {
+            var client = new RestClient(baseUrl + _investorId + "/portfolios");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader(authorization, _apiKey);
+            IRestResponse response = await client.ExecuteTaskAsync(request);
+            return JsonConvert.DeserializeObject<PortfolioContainer>(response.Content);
         }
     }
 }
