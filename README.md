@@ -73,9 +73,9 @@ This provides a summary of the investor's account.
 using LendingClub.Services;
 namespace ConsoleApp1
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             IAccountRepository accountRepository = new AccountRepository("API_KEY","Investor_Id");
             var accountSummary = accountRepository.GetAccountSummary();
@@ -90,9 +90,9 @@ This provides the most up to date value of the cash available in the investor's 
 using LendingClub.Services;
 namespace ConsoleApp1
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             IAccountRepository accountRepository = new AccountRepository("API_KEY","Investor_Id");
             var availableCash = accountRepository.GetAvailableCash();
