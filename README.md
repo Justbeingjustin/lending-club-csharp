@@ -40,7 +40,7 @@
 
 
 ## Useage
-The api key can be obtained on the settings page on the LendingClub website when the user is logged in. Also, the investorId can be found in the Account Summary section on the LendingClub website. 
+The api key can be obtained on the settings page on the LendingClub website when the user is logged in. Also, the Investor_Id can be found in the Account Summary section on the LendingClub website. 
 
 ### Loan Listing	
 This provides the details of the loans currently listed on Lending Club. The list contains the same loans that an investor would see on the browse loans page on the Lending Club website.
