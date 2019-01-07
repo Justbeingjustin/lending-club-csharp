@@ -78,7 +78,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             IAccountRepository accountRepository = new AccountRepository("API_KEY","Investor_Id");
-            var accountSummary =accountRepository.GetAccountSummary();
+            var accountSummary = accountRepository.GetAccountSummary();
         }
     }
 }
@@ -95,7 +95,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             IAccountRepository accountRepository = new AccountRepository("API_KEY","Investor_Id");
-            var availableCash =accountRepository.GetAvailableCash();
+            var availableCash = accountRepository.GetAvailableCash();
         }
     }
 }
