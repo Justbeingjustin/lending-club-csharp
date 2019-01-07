@@ -1,6 +1,7 @@
 ﻿using LendingClub.Models;
 using Newtonsoft.Json;
 using RestSharp;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace LendingClub.Services
@@ -18,7 +19,7 @@ namespace LendingClub.Services
 
         public LoansContainer GetLoans()
         {
-            var client = new RestClient(baseUrl);
+            var client = new RestClient(baseUrl + "?showAll=true");
             var request = new RestRequest(Method.GET);
             request.AddHeader(authorization, _apiKey);
             IRestResponse response = client.Execute(request);
@@ -27,11 +28,42 @@ namespace LendingClub.Services
 
         public async Task<LoansContainer> GetLoansAsync()
         {
-            var client = new RestClient(baseUrl);
+            var client = new RestClient(baseUrl + "?showAll=true");
             var request = new RestRequest(Method.GET);
             request.AddHeader(authorization, _apiKey);
             IRestResponse response = await client.ExecuteTaskAsync(request);
             return JsonConvert.DeserializeObject<LoansContainer>(response.Content);
+        }
+
+        public LoansContainer GetLoans(GetLoansRequest getLoansRequest)
+        {
+            var client = new RestClient(GetBaseURLFromRequest(getLoansRequest));
+            var request = new RestRequest(Method.GET);
+            request.AddHeader(authorization, _apiKey);
+            IRestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<LoansContainer>(response.Content);
+        }
+
+        public async Task<LoansContainer> GetLoansAsync(GetLoansRequest getLoansRequest)
+        {
+            var client = new RestClient(GetBaseURLFromRequest(getLoansRequest));
+            var request = new RestRequest(Method.GET);
+            request.AddHeader(authorization, _apiKey);
+            IRestResponse response = await client.ExecuteTaskAsync(request);
+            return JsonConvert.DeserializeObject<LoansContainer>(response.Content);
+        }
+
+        private string GetBaseURLFromRequest(GetLoansRequest getLoansRequest)
+        {
+            StringBuilder baseUrlStringBuilder = new StringBuilder();
+            var showAll = getLoansRequest.ShowAll ? "true" : "false";
+            baseUrlStringBuilder.Append(baseUrl + "?showAll=" + showAll);
+
+            if (getLoansRequest.FilterId.HasValue)
+            {
+                baseUrlStringBuilder.Append("&filterId=" + getLoansRequest.FilterId);
+            }
+            return baseUrlStringBuilder.ToString();
         }
     }
 }

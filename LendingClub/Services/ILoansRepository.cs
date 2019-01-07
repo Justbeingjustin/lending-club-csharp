@@ -8,5 +8,9 @@ namespace LendingClub.Services
         Task<LoansContainer> GetLoansAsync();
 
         LoansContainer GetLoans();
+
+        Task<LoansContainer> GetLoansAsync(GetLoansRequest getLoansRequest);
+
+        LoansContainer GetLoans(GetLoansRequest getLoansRequest);
     }
 }
