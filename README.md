@@ -67,6 +67,38 @@ namespace ConsoleApp1
 }
 ```
 
+### Submit Orders
+This allows investors to submit a new order for one or more loans.
+```
+using LendingClub.Models;
+using LendingClub.Services;
+
+namespace ConsoleApp1
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            ILoansRepository loansRepository = new LoansRepository("API_KEY");
+            accountRepository.SubmitOrder(new OrderRequest()
+            {
+                orders = new System.Collections.Generic.List<Order>() {
+                     new Order(){
+                          loanId=1, // comes from get GetLoans() call from loansRepository
+                          portfolioId=1, // comes from GetPortfolios() call
+                          requestedAmount=25
+                     }
+                }
+            });
+        }
+    }
+}
+```
+
+
+
+
+
 ### Summary
 This provides a summary of the investor's account.
 ```
@@ -83,6 +115,109 @@ namespace ConsoleApp1
     }
 }
 ```
+
+
+### Transfer Funds
+This enables users to find pending fund transfers for the investor's account.
+```
+using LendingClub.Models;
+using LendingClub.Services;
+using System;
+
+namespace ConsoleApp1
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            IAccountRepository accountRepository = new AccountRepository("API_KEY","Investor_Id");
+            
+            // now
+            var addFundsNowReceipt = accountRepository.AddFundsNow(new AddFundsNowRequest()
+            {
+                amount = 1,
+            });
+           
+           // once
+            var addFundsOnceReceipt = accountRepository.AddFundsOnce(new AddFundsOnceRequest()
+            {
+                amount = 1,
+                startDate = DateTime.Now.AddDays(1)
+            });
+            
+            // monthly
+            var addFundsMonthlyReceipt = accountRepository.AddFundsMonthly(new AddFundsMonthlyRequest()
+            {
+                amount = 1,
+                startDate = DateTime.Now.AddDays(1),
+                endDate = DateTime.Now.AddMonths(2)
+            });
+
+            // bi-weekly
+            var addFundsBiWeeklyReceipt = accountRepository.AddFundsBiWeekly(new AddFundsBiWeeklyRequest()
+            {
+                amount = 1,
+                startDate = DateTime.Now,
+                endDate = DateTime.Now.AddDays(35)
+            });
+
+            // weekly
+            var addFundsWeeklyReceipt = accountRepository.AddFundsWeekly(new  AddFundsWeeklyRequest()
+            {
+                amount = 1,
+                startDate = DateTime.Now,
+                endDate = DateTime.Now.AddDays(28)
+            });
+        }
+    }
+}
+```
+
+
+
+### Pending Transfers
+This enables users to find pending fund transfers for the investor's account.
+```
+using LendingClub.Services;
+namespace ConsoleApp1
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            IAccountRepository accountRepository = new AccountRepository("API_KEY","Investor_Id");
+            var pendingTransfers = accountRepository.GetPendingTransfers();
+        }
+    }
+}
+```
+
+
+### Cancel Transfers
+This enables user to cancel the funds transfer initiated.
+```
+using LendingClub.Models;
+using LendingClub.Services;
+using System.Collections.Generic;
+namespace ConsoleApp1
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            IAccountRepository accountRepository = new AccountRepository("API_KEY","Investor_Id");
+            var transferId = 1111; // this value comes from the GetPendingTransfers() call
+            var cancelTransferReceipt = accountRepository.CancelTransfers(new CancelTransfersRequest()
+            {
+                transferIds = new List<int>() {
+                     transferId
+                 }
+            });
+        }
+    }
+}
+```
+
 
 ### Available Cash
 This provides the most up to date value of the cash available in the investor's account.
