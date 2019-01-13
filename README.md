@@ -79,7 +79,7 @@ namespace ConsoleApp1
     {
         public static void Main(string[] args)
         {
-            ILoansRepository loansRepository = new LoansRepository("API_KEY");
+            IAccountRepository accountRepository = new AccountRepository("API_KEY","Investor_Id");
             accountRepository.SubmitOrder(new OrderRequest()
             {
                 orders = new System.Collections.Generic.List<Order>() {
