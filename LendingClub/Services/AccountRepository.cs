@@ -216,7 +216,7 @@ namespace LendingClub.Services
             var client = new RestClient(baseUrl + _investorId + "/portfolios");
             var request = new RestRequest(Method.POST);
             var orderWithActorId = (OrderRequestWithActorId)order;
-            orderWithActorId.aid = Convert.ToInt32(_investorId;
+            orderWithActorId.aid = Convert.ToInt32(_investorId);
             request.AddHeader(authorization, _apiKey);
             request.AddParameter("application/json", JsonConvert.SerializeObject(orderWithActorId), ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
