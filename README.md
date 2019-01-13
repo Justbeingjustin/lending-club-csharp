@@ -26,14 +26,14 @@
 |Account|||
 ||Summary|**Yes**|
 ||Available Cash|**Yes**|
-||Transfer Funds|**No**|
-||Pending Transfers|**No**|
-||Cancel Transfers|**No**|
+||Transfer Funds|**Yes**|
+||Pending Transfers|**Yes**|
+||Cancel Transfers|**Yes**|
 ||Notes Owned|**Yes**|
 ||Detailed Notes Owned|**Yes**|
 ||Portfolios Owned|**Yes**|
 ||Create Portfolio|**Yes**|
-||Submit Order|**No**|
+||Submit Order|**Yes**|
 |Loan|||
 ||Loan Listing|**Yes**|
 
