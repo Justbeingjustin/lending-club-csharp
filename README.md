@@ -162,7 +162,7 @@ namespace ConsoleApp1
             });
 
             // weekly
-            var addFundsWeeklyReceipt = accountRepository.AddFundsWeekly(new  AddFundsWeeklyRequest()
+            var addFundsWeeklyReceipt = accountRepository.AddFundsWeekly(new AddFundsWeeklyRequest()
             {
                 amount = 1,
                 startDate = DateTime.Now,
