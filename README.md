@@ -29,10 +29,10 @@
 ||Transfer Funds|**No**|
 ||Pending Transfers|**No**|
 ||Cancel Transfers|**No**|
-||Notes Owned|**No**|
-||Detailed Notes Owned|**No**|
-||Portfolio Owned|**No**|
-||Create Portfolio|**No**|
+||Notes Owned|**Yes**|
+||Detailed Notes Owned|**Yes**|
+||Portfolios Owned|**Yes**|
+||Create Portfolio|**Yes**|
 ||Submit Order|**No**|
 |Loan|||
 ||Loan Listing|**Yes**|
@@ -40,7 +40,7 @@
 
 
 ## Useage
-The api key can be obtained on the settings page on the LendingClub website when the user is logged in. Also, the investorId can be found in the Account Summary section on the LendingClub website. 
+The API_KEY can be obtained on the settings page on the LendingClub website when the user is logged in. Also, the Investor_Id can be found in the Account Summary section on the LendingClub website. 
 
 ### Loan Listing	
 This provides the details of the loans currently listed on Lending Club. The list contains the same loans that an investor would see on the browse loans page on the Lending Club website.
@@ -100,6 +100,88 @@ namespace ConsoleApp1
     }
 }
 ```
+
+### Notes Owned
+This subresource provides a list of notes that are owned by the investor.
+```
+using LendingClub.Services;
+namespace ConsoleApp1
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            IAccountRepository accountRepository = new AccountRepository("API_KEY","Investor_Id");
+            var notes = accountRepository.GetNotes();
+        }
+    }
+}
+```
+
+### Detailed Notes Owned
+This subresource provides a list of notes that are owned by the investor. In addition to the data provided by the Owned Notes resource, this one adds financial information regarding the notes.
+```
+using LendingClub.Services;
+namespace ConsoleApp1
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            IAccountRepository accountRepository = new AccountRepository("API_KEY","Investor_Id");
+            var detailednotes = accountRepository.GetDetailedNotes();
+        }
+    }
+}
+```
+
+
+### Portfolios Owned
+This provides a list of all portfolios that are owned by the investor.
+
+```
+using LendingClub.Services;
+namespace ConsoleApp1
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            IAccountRepository accountRepository = new AccountRepository("API_KEY","Investor_Id");
+            var portfolios = accountRepository.GetPortfolios();
+        }
+    }
+}
+```
+
+
+### Create Portfolio
+This allows investors to create a new portfolio.
+```
+using LendingClub.Models;
+using LendingClub.Services;
+namespace ConsoleApp1
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            IAccountRepository accountRepository = new AccountRepository("API_KEY","Investor_Id");
+            var createdPortfolio = accountRepository.CreatePortfolio(new CreatePortfolioRequest()
+            {
+                PortfolioName = "NameOfPortfolio",
+                PortfolioDescription = "DescriptionOfPortfolio"
+            });
+        }
+    }
+}
+```
+
+
+
+
+
+
 
 
 ## Contributing
