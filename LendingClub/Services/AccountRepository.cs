@@ -213,7 +213,7 @@ namespace LendingClub.Services
 
         public OrderReceipt SubmitOrder(OrderRequest order)
         {
-            var client = new RestClient(baseUrl + _investorId + "/portfolios");
+            var client = new RestClient(baseUrl + _investorId + "/orders");
             var request = new RestRequest(Method.POST);
             var orderWithActorId = (OrderRequestWithActorId)order;
             orderWithActorId.aid = Convert.ToInt32(_investorId);
