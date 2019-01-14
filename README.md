@@ -118,7 +118,7 @@ namespace ConsoleApp1
 
 
 ### Transfer Funds
-This enables users to find pending fund transfers for the investor's account.
+This enables a user to add funds to the investor's account.
 ```
 using LendingClub.Models;
 using LendingClub.Services;
