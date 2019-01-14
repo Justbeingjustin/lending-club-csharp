@@ -20,6 +20,8 @@ LendingClub is a US peer-to-peer lending company. Historically, only banks and l
  ```
     PM> Install-Package lending-club-csharp
 ```
+[![](https://img.shields.io/nuget/v/lending-club-csharp.svg)](https://www.nuget.org/packages/lending-club-csharp/)\
+[![](https://img.shields.io/nuget/dt/lending-club-csharp.svg)](https://www.nuget.org/packages/lending-club-csharp/)
 
 ## Supported Features
 |Resource|Feature|Supported|
