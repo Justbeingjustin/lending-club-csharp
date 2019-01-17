@@ -75,6 +75,7 @@ This allows investors to submit a new order for one or more loans.
 ```
 using LendingClub.Models;
 using LendingClub.Services;
+using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
@@ -82,10 +83,10 @@ namespace ConsoleApp1
     {
         public static void Main(string[] args)
         {
-            IAccountRepository accountRepository = new AccountRepository("API_KEY","Investor_Id");
+            IAccountRepository accountRepository = new AccountRepository("API_KEY", "Investor_Id");
             accountRepository.SubmitOrder(new OrderRequest()
             {
-                orders = new System.Collections.Generic.List<Order>() {
+                orders = new List<Order>() {
                      new Order(){
                           loanId=1, // comes from get GetLoans() call from loansRepository
                           portfolioId=1, // comes from GetPortfolios() call
