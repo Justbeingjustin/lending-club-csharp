@@ -5,7 +5,7 @@ LendingClub is a US peer-to-peer lending company. Historically, only banks and l
 **[Available For](#available-for)**<br>
 **[Nuget](#nuget)**<br>
 **[Supported Features](#supported-features)**<br>
-**[Useage](#useage)**<br>
+**[Usage](#usage)**<br>
 **[Contributing](#contributing)**<br>
 
 
@@ -42,7 +42,7 @@ LendingClub is a US peer-to-peer lending company. Historically, only banks and l
 
 
 
-## Useage
+## Usage
 The API_KEY can be obtained on the settings page on the LendingClub website when the user is logged in. Also, the Investor_Id can be found in the Account Summary section on the LendingClub website. 
 
 ### Loan Listing	
