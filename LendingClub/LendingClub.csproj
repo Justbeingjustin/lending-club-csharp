@@ -11,7 +11,7 @@
     <PackageProjectUrl>https://github.com/Justbeingjustin/lending-club-csharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Justbeingjustin/lending-club-csharp</RepositoryUrl>
     <PackageLicenseUrl>https://github.com/Justbeingjustin/lending-club-csharp</PackageLicenseUrl>
-    <Version>5.0.1</Version>
+    <Version>5.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
