@@ -82,12 +82,12 @@ namespace LendingClub.Models
         /// <summary>
         /// Next payment date
         /// </summary>
-        public DateTime nextPaymentDate { get; set; }
+        public DateTime? nextPaymentDate { get; set; }
 
         /// <summary>
         /// Issue date
         /// </summary>
-        public DateTime issueDate { get; set; }
+        public DateTime? issueDate { get; set; }
 
         /// <summary>
         /// Order date
