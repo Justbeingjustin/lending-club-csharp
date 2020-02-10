@@ -7,6 +7,7 @@ LendingClub is a US peer-to-peer lending company. Historically, only banks and l
 **[Supported Features](#supported-features)**<br>
 **[Usage](#usage)**<br>
 **[Contributing](#contributing)**<br>
+**[Versioning](#versioning)**<br>
 
 
 ## Available For
@@ -328,3 +329,6 @@ namespace ConsoleApp1
 Pull requests are welcome. 
 
 For large changes, please open an issue first to discuss what you would like to add.
+
+## Versioning
+We use Semantic Versioning (SemVer) for versioning. if you're unfamiliar with this versioning, then please check out the SemVer docs.
