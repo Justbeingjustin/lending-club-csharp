@@ -1,3 +1,13 @@
+<div align="center">
+	<br>
+	<a href="https://github.com/Justbeingjustin/lending-club-csharp/blame/master/header.svg">
+		<img src="header.svg" width="800" height="400">
+	</a>
+	<br>
+</div>
+
+
+
 # lending-club-csharp
 LendingClub is a US peer-to-peer lending company. Historically, only banks and large institutions could invest in consumer credit. With LendingClub, you can get new access to an asset class that institutions have enjoyed for decades, diversify your portfolio, and potentially earn competitive returns. This library aims to easily provide lending club services using the C# language.
 
