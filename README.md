@@ -341,4 +341,4 @@ Pull requests are welcome.
 For large changes, please open an issue first to discuss what you would like to add.
 
 ## Versioning
-We use Semantic Versioning (SemVer) for versioning. if you're unfamiliar with this versioning, then please check out the SemVer docs.
+We use Semantic Versioning (SemVer) for versioning. If you're unfamiliar with this versioning, then please check out the SemVer docs.
